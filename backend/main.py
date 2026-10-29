@@ -1,3 +1,4 @@
+import os
 """SupportDesk REST API application entry point."""
 from contextlib import asynccontextmanager
 
