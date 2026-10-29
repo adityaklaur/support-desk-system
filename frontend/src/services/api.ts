@@ -3,7 +3,10 @@ import type {
   TicketFilters, TicketUpdateInput,
 } from '../types'
 
-const BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api').replace(/\/+$/, '')
+const BASE_URL = (
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV ? 'http://localhost:8000/api' : '')
+).replace(/\/+$/, '')
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const headers = new Headers(options.headers)
